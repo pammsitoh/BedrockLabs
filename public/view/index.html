@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BedrockLabs</title>
+
+    <script src="lib/tailwindcss.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="h-screen">
+    <div class="w-full" id="container">
+        <div class="grid grid-cols-12 h-screen">
+            <div class="bg-zinc-800 col-span-2 border-r border-zinc-600" id="object_panel">
+                <div class="bg-zinc-900 flex justify-center text-white border-b border-zinc-600 p-2">Map</div>
+                <div class="bg-zinc-900 border-b border-zinc-600 grid grid-cols-2 text-white text-sm">
+                    <a class="bg-zinc-500 flex justify-center border-r border-zinc-600">Scene</a>
+                    <a class="flex justify-center">Project</a>
+                </div>
+                <ul id="objects">
+                    <div class="bg-zinc-700 text-white p-1 m-2 text-sm"><i class="fa-solid fa-cube"></i> Cubito Verde (2)</div>
+                </ul>
+            </div>
+            <div class="bg-zinc-700 flex flex-col col-span-8">
+                <div class="h-4/6">
+                    <div class="absolute">
+                        <div class="grid grid-cols-4">
+                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-up-down-left-right"></i></button>
+                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-rotate"></i></button>
+                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-maximize"></i></button>
+                            <button onclick="toggleScript()" class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-scroll"></i></button>
+                        </div>
+                    </div>
+                    <div id="viewport" class="w-full h-full"></div>
+                    <div id="scripting" class="w-full h-full bg-purple-200 hidden">
+                        <textarea id="scripting_zone"></textarea>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 h-3/6 border-t border-zinc-600 p-2 text-white">
+                    <h4 class="p-2">Assets</h4>
+                    <div class="w-full p-2 grid grid-cols-10 gap-4 mt-4 bg-zinc-800">
+                        <div class="text-zinc-400 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-folder text-6xl"></i>
+                            <h1 class="">Textures</h1>
+                        </div>
+
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Cubito.blp</h1>
+                        </div>
+
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                        <div class="text-zinc-200 p-2 grid grid-cols-1 gap-2">
+                            <i class="fa-solid fa-file text-6xl"></i>
+                            <h1 class="">Ejemplo.blp</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-zinc-800 col-span-2 border-l border-zinc-600">
+                <div class="bg-zinc-900 flex justify-center text-white border-zinc-600 p-2">Object properties</div>
+                <div class="bg-zinc-900 border border-zinc-600 grid grid-cols-3 text-white text-sm">
+                    <a class="bg-zinc-500 flex justify-center border-r border-zinc-600">C / Groups</a>
+                    <a class="flex justify-center border-r border-zinc-600">Components</a>
+                    <a class="flex justify-center">Events</a>
+                </div>
+                <div class="mt-2 p-2">
+                    <a onclick="the_view.addCube()" class="bg-zinc-600 p-1 flex justify-center text-white rounded-md hover:bg-zinc-400" href="#">
+                        <span>Create Component Group &nbsp;</span>
+                        <i class="fa-solid fa-circle-plus text-lg"></i>
+                    </a>
+                </div>
+                <div class="mt-2 p-2 hidden" id="property_panel">
+                    <div class="bg-zinc-900 border border-zinc-600 p-1">
+                        <h1 class="text-white">Properties</h1>
+                        <hr class="my-1 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50" />
+                        <div class="text-white">
+                            <h1 id="property_name">Name: </h1>
+                            <h1 id="property_position">Position: </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contextMenu" style="display: none;" class="bg-zinc-950 border border-zinc-800 text-white p-2">
+        <h1>Create</h1>
+        <div class="relative flex py-1 items-center">
+            <div class="flex-grow border-t border-gray-400"></div>
+        </div>
+        <ul class="grid grid-cols-1">
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a id="addcube" class="p-1 w-full" href="#" ><i class="fa-solid fa-cube"></i> Block</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addEntity()"><i class="fa-solid fa-robot"></i> Entity</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-drumstick-bite"></i> Item</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-laptop-code"></i> Trigger</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-star"></i> Spawn</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-fire-burner"></i> Recipe</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-explosion"></i> Explosion</a></li>
+            <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-stopwatch"></i> Timer</a></li>
+        </ul>
+    </div>
+    
+    <script type="module">
+        import * as THREE from './lib/threejs.js';
+        // Tu código que utiliza 'THREE' aquí
+    </script>
+    <script type="module" src="lib/transformControls.js"></script>
+    <script type="module" src="lib/viewport.js"></script>
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

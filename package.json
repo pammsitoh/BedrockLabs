@@ -1,0 +1,23 @@
+{
+  "name": "blinkereditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bedrocker/mc-nbt": "^0.1.15",
+    "bedrock-provider": "^3.0.0",
+    "leveldb-zlib": "^1.2.0",
+    "leveldown": "^6.1.1",
+    "nbt": "^0.8.1",
+    "nbtify": "^1.75.0"
+  },
+  "devDependencies": {
+    "electron": "^26.2.1"
+  }
+}

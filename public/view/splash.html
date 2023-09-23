@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading...</title>
+  <style>
+    /* Estilos para centrar la imagen en la ventana */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: transparent;
+    }
+  </style>
+  <script src="lib/tailwindcss.js"></script>
+</head>
+<body>
+  <img id="splash" class="transition ease-in-out delay-150 duration-1000 opacity-0" width="40%" src="./assets/splash_screen.svg" alt="Logo de la aplicación">
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const myElement = document.getElementById('splash');
+        myElement.classList.add('opacity-100');
+    });
+
+  </script>
+</body>
+</html>
