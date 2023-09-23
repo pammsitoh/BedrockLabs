@@ -94,10 +94,10 @@ export default class Viewport {
         this.scene.background = new THREE.Color(0x121212);
 
         //ADD Luz Ambiental...
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 2);
 
         //ADD Luz Directional...
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
         directionalLight.castShadow = true;
         directionalLight.position.set(3, 10, 5);
 
@@ -164,17 +164,21 @@ export default class Viewport {
         let copper = this.texture_loader.load('./assets/textures/blocks/copper_block.png');
         copper.minFilter = THREE.NearestFilter;
         copper.magFilter = THREE.NearestFilter;
+        copper.encoding = THREE.sRGBEncoding;
 
         let bookshelf = this.texture_loader.load('./assets/textures/blocks/chiseled_bookshelf_top.png')
         bookshelf.magFilter = THREE.NearestFilter
         bookshelf.minFilter = THREE.NearestFilter
+        bookshelf.encoding = THREE.sRGBEncoding;
 
         let grass = this.texture_loader.load('assets/textures/blocks/grass_carried.png');
         grass.magFilter = THREE.NearestFilter
         grass.minFilter = THREE.NearestFilter
+        grass.encoding = THREE.sRGBEncoding;
         let grass_side = this.texture_loader.load('assets/textures/blocks/grass_side_carried.png');
         grass_side.magFilter = THREE.NearestFilter
         grass_side.minFilter = THREE.NearestFilter
+        grass_side.encoding = THREE.sRGBEncoding;
 
         this.textures.push(copper);
         this.textures.push(bookshelf);
