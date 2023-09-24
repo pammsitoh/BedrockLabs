@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls'
-import CopperTexture from '../assets/textures/blocks/copper_block.png';
 
 export class Viewport {
     constructor() {
@@ -52,37 +51,6 @@ export class Viewport {
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.renderer.shadowMap.needsUpdate = true;
         this.renderer.gammaOutput = false;
-    }
-
-    createSkybox() {
-        const cubemapLoader = new THREE.TextureLoader();
-
-        const ft = cubemapLoader.load('assets/textures/skybox/front.png');
-        const bk = cubemapLoader.load('assets/textures/skybox/back.png');
-        const up = cubemapLoader.load('assets/textures/skybox/top.png')
-        up.rotation = Math.PI;
-        up.center = new THREE.Vector2(0.5, 0.5);
-        const dn = cubemapLoader.load('assets/textures/skybox/bottom.png')
-        dn.rotation = Math.PI;
-        dn.center = new THREE.Vector2(0.5, 0.5);
-        const rt = cubemapLoader.load('assets/textures/skybox/right.png');
-        const lf = cubemapLoader.load('assets/textures/skybox/left.png');
-
-        const owl = [
-            new THREE.MeshBasicMaterial({ map: lf, side: THREE.BackSide, color: 0x333333 }),
-            new THREE.MeshBasicMaterial({ map: rt, side: THREE.BackSide, color: 0x333333 }),
-            new THREE.MeshBasicMaterial({ map: up, side: THREE.BackSide, color: 0x333333 }),
-            new THREE.MeshBasicMaterial({ map: dn, side: THREE.BackSide, color: 0x333333 }),
-            new THREE.MeshBasicMaterial({ map: bk, side: THREE.BackSide, color: 0x333333 }),
-            new THREE.MeshBasicMaterial({ map: ft, side: THREE.BackSide, color: 0x333333 })
-        ]
-
-        const skyboxGeometry = new THREE.BoxGeometry(1000, 1000, 1000); // Ajusta el tamaño según tus necesidades
-
-        const skybox = new THREE.Mesh(skyboxGeometry, owl);
-
-        this.scene.add(skybox);
-
     }
 
     /**
@@ -151,8 +119,7 @@ export class Viewport {
      * @description Carga de texturas...
      */
     textureLoader() {
-
-        let copper = this.texture_loader.load(CopperTexture);
+        let copper = this.texture_loader.load('../assets/textures/blocks/copper_block.png');
         copper.minFilter = THREE.NearestFilter;
         copper.magFilter = THREE.NearestFilter;
         copper.encoding = THREE.sRGBEncoding;
@@ -173,7 +140,7 @@ export class Viewport {
 
         this.textures.push(copper);
         this.textures.push(bookshelf);
-        this.textures.push(grass);
+        this.textures.push(grass); 
         this.textures.push(grass_side);
     }
 

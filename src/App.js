@@ -6,6 +6,7 @@ import TheView from "./components/TheView";
 import ContextMenu from "./components/ContextMenu";
 import LeftPanel from "./components/LeftPanel";
 import TabList from "./components/TabList";
+import ProjectExplorer from "./components/ProjectExplorer";
 
 function App() {
 
@@ -39,65 +40,7 @@ function App() {
                             <textarea id="scripting_zone"></textarea>
                         </div>
                     </div>
-                    <div className="bg-zinc-900 h-2/6 border-t border-zinc-600 p-2 text-white">
-                        <h4 className="p-2">Assets</h4>
-                        <div className="w-full p-2 grid grid-cols-10 gap-4 mt-4 bg-zinc-800">
-                            <div className="text-zinc-400 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-folder text-6xl"></i>
-                                <h1 className="">Textures</h1>
-                            </div>
-
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Cubito.blp</h1>
-                            </div>
-
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                            <div className="text-zinc-200 p-2 grid grid-cols-1 gap-2">
-                                <i className="fa-solid fa-file text-6xl"></i>
-                                <h1 className="">Ejemplo.blp</h1>
-                            </div>
-                        </div>
-                    </div>
+                    <ProjectExplorer />
                 </div>
                 <div className="bg-zinc-800 col-span-2 border-l border-zinc-600">
                     <div className="bg-zinc-900 flex justify-center text-white border-zinc-600 p-2">Object properties</div>

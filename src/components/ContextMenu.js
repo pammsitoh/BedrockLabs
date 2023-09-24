@@ -14,7 +14,7 @@ const ContextMenu = ({viewport}) => {
     }
 
     return (
-        <div id="contextMenu" className="absolute bg-zinc-950 border border-zinc-800 text-white p-2">
+        <div id="contextMenu" className="absolute bg-zinc-950 border border-zinc-800 text-white p-2 hidden">
             <h1>Create</h1>
             <div className="relative flex py-1 items-center">
                 <div className="flex-grow border-t border-gray-400"></div>
