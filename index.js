@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const path = require('path');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -13,7 +14,7 @@ const createWindow = () => {
 
   win.maximize()
 
-  win.loadFile('public/view/index.html')
+  win.loadFile(path.join(__dirname, 'build', 'index.html'))
   win.webContents.on('did-finish-load', () => {
     win.show();
   });
@@ -31,7 +32,7 @@ const createLoadingScreen = () => {
 
   win.maximize()
 
-  win.loadFile('public/view/splash.html')
+  win.loadFile('public/splash.html')
   win.on('closed', () => (loadingScreen = null));
   win.webContents.on('did-finish-load', () => {
     win.show();
