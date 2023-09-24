@@ -4,9 +4,15 @@ import { useGlobalState } from '../context/UContext';
 import ScriptingTab from './Tabs/ScriptingTab';
 import RecipeMakerTab from './Tabs/RecipeMakerTab';
 
-const TheView = ({contextMenu}) => {
+const TheView = ({viewport}) => {
 
     const { globalState, setGlobalState } = useGlobalState();
+
+    window.addEventListener('keydown', (ev) => {
+        if(ev.key == 'd'){
+            viewport?.duplicate();
+        }
+    });
     
     return (
         <div className='h-full'>

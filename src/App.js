@@ -7,21 +7,27 @@ import ContextMenu from "./components/ContextMenu";
 import LeftPanel from "./components/LeftPanel";
 import TabList from "./components/TabList";
 import ProjectExplorer from "./components/ProjectExplorer";
+import { useGlobalState } from "./context/UContext";
+
+function StartViewport(gb, sgb) {
+    const tv = new Viewport(gb, sgb);
+    tv.onStart();
+    return tv;
+}
+  
 
 function App() {
 
   const [ isOpenContextMenu, SetOpenContextMenu ] = useState(false);
-  const [ theView, setTheView ] = useState("");
-
-  const StartViewport = () => {
-    let the_view = new Viewport();
-    the_view.onStart();
-    setTheView(the_view);
-  }
+  const [ theView, setTheView ] = useState(null);
+  const { globalState, setGlobalState } = useGlobalState();
 
   useEffect(() => {
-    StartViewport();  
-  },[]);
+    if(theView == null) {
+        const newView = StartViewport(globalState, setGlobalState);
+        setTheView(newView);
+    };
+  },[theView]);
     
   return (
       <body className="h-screen">
@@ -35,7 +41,7 @@ function App() {
                         </div>
                     </div>
                     <div className="h-4/6">
-                        <TheView contextMenu={SetOpenContextMenu} />
+                        <TheView viewport={theView} />
                         <div id="scripting" className="w-full h-full bg-purple-200 hidden">
                             <textarea id="scripting_zone"></textarea>
                         </div>

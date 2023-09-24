@@ -1,4 +1,5 @@
 import React from 'react';
+import TreeView from './LeftPanel/TreeView';
 
 const LeftPanel = ({ isOpen }) => {
 
@@ -30,9 +31,7 @@ const LeftPanel = ({ isOpen }) => {
                 <a className="bg-zinc-500 flex justify-center border-r border-zinc-600">Scene</a>
                 <a className="flex justify-center">Project</a>
             </div>
-            <ul id="objects">
-                <div className="bg-zinc-700 text-white p-1 m-2 text-sm"><i className="fa-solid fa-cube"></i> Cubito Verde (2)</div>
-            </ul>
+            <TreeView />
         </div>
     );
 }

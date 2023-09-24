@@ -14,7 +14,7 @@ export class Viewport {
         // Variables para el control del mouse
         this.mouse = new THREE.Vector2();
         this.raycaster = new THREE.Raycaster();
-
+ 
         this.isMouseDown = false;
         this.isDragging = false;
 
@@ -23,7 +23,7 @@ export class Viewport {
         // Punto central alrededor del cual se realizará la rotación
         this.centralPoint = new THREE.Vector3(0, 0, 0);
 
-        this.cameraRotationSpeed = 0.005;
+        this.cameraRotationSpeed = 0.005; 
         this.cameraDistance = 10;
         this.cameraAngleX = 0;
         this.cameraAngleY = 0;
@@ -103,7 +103,7 @@ export class Viewport {
         this.scene.add(axesHelper);
         //this.createSkybox();
 
-        this.selected_object = caja;
+        this.selected_object = null;
         this.rayline = rayLine;
         this.scene.add(this.tcontrols);
     }
@@ -119,6 +119,7 @@ export class Viewport {
      * @description Carga de texturas...
      */
     textureLoader() {
+
         let copper = this.texture_loader.load('../assets/textures/blocks/copper_block.png');
         copper.minFilter = THREE.NearestFilter;
         copper.magFilter = THREE.NearestFilter;
@@ -140,7 +141,7 @@ export class Viewport {
 
         this.textures.push(copper);
         this.textures.push(bookshelf);
-        this.textures.push(grass); 
+        this.textures.push(grass);
         this.textures.push(grass_side);
     }
 
@@ -194,6 +195,17 @@ export class Viewport {
             console.log(ev);
         });
         this.contextMenu(false);
+    }
+
+    duplicate(){
+        if (this.selected_object !== null) {
+            // Realiza la operación de duplicación aquí
+            const clone = this.selected_object.clone();
+            this.selected_object = clone;
+            this.scene.add(clone);
+        } else {
+            console.error("El objeto es null");
+        }
     }
 
     /**
@@ -308,7 +320,6 @@ export class Viewport {
                 pt_panel.classList.add('hidden');
                 pt_panel.classList.remove('block');
                 this.selected_object = null;
-                this.gizmos.visible = false;
             }
         });
 
@@ -317,9 +328,11 @@ export class Viewport {
             this.type_drag = 0;
             this.isDragging = false; // Detiene la rotación al soltar el botón del mouse
 
-            this.selected_object.position.x = Math.round(this.selected_object.position.x);
-            this.selected_object.position.y = Math.round(this.selected_object.position.y) - 0.5;
-            this.selected_object.position.z = Math.round(this.selected_object.position.z);
+            if(this.selected_object != null) {
+                this.selected_object.position.x = Math.round(this.selected_object.position.x);
+                this.selected_object.position.y = Math.round(this.selected_object.position.y) - 0.5;
+                this.selected_object.position.z = Math.round(this.selected_object.position.z);
+            }
         });
 
         // Agrega un evento de escucha para el movimiento de la rueda del ratón
@@ -445,10 +458,14 @@ export class Viewport {
         // Actualiza aquí la animación
         this.updateGridOpacity(this.infiniteGrid, this.camera);
         this.adjustDomRenderer();
-        this.traverseScene(this.scene);
+        //this.traverseScene(this.scene);
 
         //TRANSFORM CONTROLS
-        this.tcontrols.attach(this.selected_object);
+        if( this.selected_object == null){
+            this.tcontrols.detach()
+        }else {
+            this.tcontrols.attach(this.selected_object);
+        }
 
         //RAYLINE
 
