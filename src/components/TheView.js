@@ -9,7 +9,8 @@ const TheView = ({viewport}) => {
     const { globalState, setGlobalState } = useGlobalState();
 
     window.addEventListener('keydown', (ev) => {
-        if(ev.key == 'd'){
+        ev.preventDefault();
+        if(ev.ctrlKey && ev.key == 'd'){
             viewport?.duplicate();
         }
     });
