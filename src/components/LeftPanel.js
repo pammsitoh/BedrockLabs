@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TreeView from './LeftPanel/TreeView';
 
 const LeftPanel = ({ isOpen }) => {
 
-    
+    const [ cTab, setCTab ] = useState(0);
+
+    const showTab = (tab) => {
+        setCTab(tab);
+    }
 
     const OpenContextMenu = (ev) => {
         ev.preventDefault();
@@ -28,10 +32,17 @@ const LeftPanel = ({ isOpen }) => {
         <div onContextMenu={OpenContextMenu} onClick={CloseContextMenu} className="bg-zinc-800 col-span-2 border-r border-zinc-600" id="object_panel">
             <div className="bg-zinc-900 flex justify-center text-white border-b border-zinc-600 p-2">Map</div>
             <div className="bg-zinc-900 border-b border-zinc-600 grid grid-cols-2 text-white text-sm">
-                <a className="bg-zinc-500 flex justify-center border-r border-zinc-600">Scene</a>
-                <a className="flex justify-center">Project</a>
+                <a href='#' onClick={() => { showTab(0) }} className={`flex justify-center border-r border-zinc-600 ${ cTab == 0 ? "bg-zinc-500" : "" }`}>Scene</a>
+                <a href='#' onClick={() => { showTab(1) }} className={`flex justify-center ${ cTab == 1 ? "bg-zinc-500" : "" }`}>Project</a>
             </div>
-            <TreeView />
+            {
+                cTab == 0 ?
+                <TreeView />
+                :
+                <div className='flex justify-center p-5'>
+                    <h2>Project Settings</h2>
+                </div>
+            }
         </div>
     );
 }
