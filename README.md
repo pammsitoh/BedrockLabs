@@ -14,7 +14,7 @@ También puedes ver errores de lint en la consola.
 
 ### `npm run app`
 
-Inicia la aplicacion en electronjs.\
+Inicia la aplicacion en ElectronJS.\
 
 ### `npm test`
 
