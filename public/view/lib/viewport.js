@@ -515,7 +515,6 @@ export default class Viewport {
 
             }
 
-
         });
     }
 
@@ -529,7 +528,11 @@ export default class Viewport {
         this.traverseScene(this.scene);
 
         //TRANSFORM CONTROLS
-        this.tcontrols.attach(this.selected_object);
+        if( this.selected_object != null ){
+            this.tcontrols.attach(this.selected_object);
+        }else {
+            this.tcontrols.detach();
+        }
 
         //RAYLINE
 

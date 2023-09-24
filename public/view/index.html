@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-screen">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BedrockLabs</title>
 
+    
     <script src="lib/tailwindcss.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <link rel="stylesheet" href="css/global.css">
@@ -23,22 +24,57 @@
                     <div class="bg-zinc-700 text-white p-1 m-2 text-sm"><i class="fa-solid fa-cube"></i> Cubito Verde (2)</div>
                 </ul>
             </div>
-            <div class="bg-zinc-700 flex flex-col col-span-8">
-                <div class="h-4/6">
-                    <div class="absolute">
-                        <div class="grid grid-cols-4">
-                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-up-down-left-right"></i></button>
-                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-rotate"></i></button>
-                            <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-maximize"></i></button>
-                            <button onclick="toggleScript()" class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-scroll"></i></button>
-                        </div>
+            <div class="bg-zinc-700 flex flex-col justify-between col-span-8">
+                <div class="">
+                    <div class="grid grid-cols-5">
+                        <button class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-mountain-sun"></i> 3D View</button>
+                        <button id="toggleScript" class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-scroll"></i> Scripting</button>
+                        <button id="recipe-editor-toggle" class="bg-zinc-700 border border-zinc-600 text-white p-2"><i class="fa-solid fa-fire-burner"></i> Recipe Maker</button>
                     </div>
+                </div>
+                <div class="h-4/6">
                     <div id="viewport" class="w-full h-full"></div>
                     <div id="scripting" class="w-full h-full bg-purple-200 hidden">
                         <textarea id="scripting_zone"></textarea>
                     </div>
+                    <div id="recipe-editor" class="w-full h-full hidden">
+                        <div class="grid grid-cols-2 h-full">
+                            <div class="w-full h-full flex justify-center items-center">
+                                <div class="grid grid-cols-3 gap-4 ">
+                                    <a class="p-6 flex justify-center bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+    
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+    
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                    <a class="p-6 flex justify-center w-24 bg-zinc-800 shadow-inner border border-zinc-200 text-white"><i class="fa-solid fa-splotch"></i></a>
+                                </div>
+                            </div>
+                            <div class="w-full h-full bg-zinc-900 h-full p-10">
+                                <div class="text-white">
+                                    <h1 class="text-2xl mb-5">Recipe Maker</h1>
+                                    <h5>Identifier</h5>
+                                    <input class="p-2 mb-2 rounded-sm w-full text-black" type="text" placeholder="example:recipe" >
+
+                                    <h5>Type</h5>
+                                    <select id="cars" class="text-black p-2">
+                                        <option value="audi">Recipe Shaped</option>
+                                        <option value="audi">Recipe Shapeless</option>
+                                        <option value="volvo">Furnace Recipe</option>
+                                        <option value="saab">Recipe Brewing Container</option>
+                                        <option value="opel">Recipe Brewing Mix</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="bg-zinc-900 h-3/6 border-t border-zinc-600 p-2 text-white">
+                <div class="bg-zinc-900 h-2/6 border-t border-zinc-600 p-2 text-white">
                     <h4 class="p-2">Assets</h4>
                     <div class="w-full p-2 grid grid-cols-10 gap-4 mt-4 bg-zinc-800">
                         <div class="text-zinc-400 p-2 grid grid-cols-1 gap-2">
@@ -141,6 +177,8 @@
             <li class="hover:bg-zinc-600 text-zinc-400 hover:text-pink-500"><a class="p-1 w-full" href="#" onclick="the_view.addCube()"><i class="fa-solid fa-stopwatch"></i> Timer</a></li>
         </ul>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <script type="module">
         import * as THREE from './lib/threejs.js';

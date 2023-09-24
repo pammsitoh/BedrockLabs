@@ -10,6 +10,10 @@ the_view.onStart();
 const myElement = document.getElementById("object_panel");
 const contextMenu = document.getElementById("contextMenu");
 const addcube = document.getElementById("addcube");
+const tgScript = document.getElementById("toggleScript");
+const recipeEditorTg = document.getElementById("recipe-editor-toggle");
+const recipeEditor = document.getElementById("recipe-editor");
+
 
 // Captura el evento contextmenu
 myElement.addEventListener("contextmenu", (e) => {
@@ -25,6 +29,14 @@ addcube.onclick = () => {
   the_view.addCube()
 };
 
+tgScript.onclick = () => {
+  toggleScript();
+}
+
+recipeEditorTg.onclick = () => {
+  toggleRecipeEditor();
+}
+
 // Oculta el menú personalizado cuando se hace clic fuera de él
 document.addEventListener("click", () => {
   contextMenu.style.display = "none";
@@ -37,8 +49,19 @@ contextMenu.addEventListener("click", (e) => {
 
 //SCRIPTING ZONE...
 let isScripting = false;
+let isReciping = false;
 let inViewport = document.querySelector("#viewport");
-let inScripting = document.querySelector("#scripting");
+let inScripting = document.getElementById("scripting");
+
+// Reemplaza 'miEditor' con el ID del elemento que creaste en el paso anterior.
+if(inScripting){
+  var editor = CodeMirror.fromTextArea(inScripting, {
+    theme: 'dracula'    // Reemplaza con el nombre del tema que desees usar (opcional)
+  });
+}else {
+  console.error("Element 'miEditor' not found.");
+}
+
 
 function toggleScript(){
   isScripting = !isScripting;
@@ -51,6 +74,23 @@ function toggleScript(){
   }else {
     inScripting.classList.remove("block");
     inScripting.classList.add("hidden");
+
+    inViewport.classList.add("block");
+    inViewport.classList.remove("hidden");
+  }
+}
+
+function toggleRecipeEditor(){
+  isReciping = !isReciping;
+  if(isReciping){
+    recipeEditor.classList.add("block");
+    recipeEditor.classList.remove("hidden");
+
+    inViewport.classList.remove("block");
+    inViewport.classList.add("hidden");
+  }else {
+    recipeEditor.classList.remove("block");
+    recipeEditor.classList.add("hidden");
 
     inViewport.classList.add("block");
     inViewport.classList.remove("hidden");

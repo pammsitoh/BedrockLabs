@@ -14,6 +14,7 @@
     "bedrock-provider": "^3.0.0",
     "leveldb-zlib": "^1.2.0",
     "leveldown": "^6.1.1",
+    "monaco-editor": "^0.43.0",
     "nbt": "^0.8.1",
     "nbtify": "^1.75.0"
   },
