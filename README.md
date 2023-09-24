@@ -1,6 +1,4 @@
-# Empezando con Create React App
-
-Este proyecto fue inicializado con [Create React App](https://github.com/facebook/create-react-app).
+# Empezando con BedrockLabs
 
 ## Scripts Disponibles
 
@@ -13,6 +11,10 @@ Abre [http://localhost:3000](http://localhost:3000) para verla en tu navegador.
 
 La página se recargará automáticamente cuando realices cambios.\
 También puedes ver errores de lint en la consola.
+
+### `npm run app`
+
+Inicia la aplicacion en electronjs.\
 
 ### `npm test`
 
