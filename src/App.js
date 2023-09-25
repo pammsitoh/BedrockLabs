@@ -9,6 +9,7 @@ import TabList from "./components/TabList";
 import ProjectExplorer from "./components/ProjectExplorer";
 import { useGlobalState } from "./context/UContext";
 import RightPanel from "./components/RightPanel";
+import ExportWindow from "./components/Windows/ExportWindow";
 
 function StartViewport(gb, sgb) {
     const tv = new Viewport(gb, sgb);
@@ -32,6 +33,7 @@ function App() {
     
   return (
       <body className="h-screen">
+        <ExportWindow />
         <div className="w-full" id="container">
             <div className="grid grid-cols-12 h-screen">
                 <LeftPanel isOpen={SetOpenContextMenu}/>

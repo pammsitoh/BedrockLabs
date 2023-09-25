@@ -10,18 +10,9 @@ export const UContext= ({ children }) => {
         name: "Example",
         type: "block",
         object: null
-      },
-      {
-        name: "Example",
-        type: "block",
-        object: null
-      },
-      {
-        name: "Example",
-        type: "block",
-        object: null
       }
-    ]
+    ],
+    wantExport: false
   });
 
   return (

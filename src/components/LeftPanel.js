@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TreeView from './LeftPanel/TreeView';
+import ProjectSettings from './LeftPanel/ProjectSettings';
 
 const LeftPanel = ({ isOpen }) => {
 
@@ -39,9 +40,7 @@ const LeftPanel = ({ isOpen }) => {
                 cTab == 0 ?
                 <TreeView />
                 :
-                <div className='flex justify-center p-5'>
-                    <h2>Project Settings</h2>
-                </div>
+                <ProjectSettings />
             }
         </div>
     );
