@@ -77,6 +77,12 @@ export class Viewport {
         caja.position.y = 0.5;
         caja.rotation.x += 0;
         caja.userData.canClick = true;
+        const cajaRef = caja;
+        caja.userData.bedrockElement = {
+            type: "block",
+            object: cajaRef,
+            source: {}
+        };
 
         // Llama a la función para crear la cuadrícula infinita
         this.infiniteGrid = this.createInfiniteGrid(15, 15, 0x383838, 0x4a0045);
@@ -166,12 +172,20 @@ export class Viewport {
         caja.position.y = 1.5;
         caja.rotation.x += 0;
         caja.userData.canClick = true;
+        const cajaRef = caja;
         caja.userData.bedrockElement = {
             type: "block",
+            object: cajaRef,
             source: {}
         };
 
+        console.log(caja.userData.bedrockElement);
         this.scene.add(caja);
+    }
+
+    removeCube(caja) {
+        console.log(caja)
+        this.scene.remove(caja);
     }
 
     addEntity() {

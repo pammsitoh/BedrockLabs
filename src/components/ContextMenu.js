@@ -1,16 +1,18 @@
 import { faCube } from '@fortawesome/free-solid-svg-icons';
+import { useGlobalState } from '../context/UContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const ContextMenu = ({viewport}) => {
-
+    const { globalState, setGlobalState } = useGlobalState();
     const ClickedOption = () => {
 
         let ctx = document.querySelector("#contextMenu");
         ctx.classList.add("hidden");
         ctx.classList.remove("block");
         viewport.addCube();
-        
+        const updatedSceneObjects = globalState.sceneObjects;
+        setGlobalState({ ...globalState, sceneObjects: updatedSceneObjects });
     }
 
     return (

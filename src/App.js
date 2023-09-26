@@ -36,7 +36,7 @@ function App() {
         <ExportWindow />
         <div className="w-full" id="container">
             <div className="grid grid-cols-12 h-screen">
-                <LeftPanel isOpen={SetOpenContextMenu}/>
+                <LeftPanel isOpen={SetOpenContextMenu} viewport={theView}/>
                 <div className="bg-zinc-700 flex flex-col justify-between col-span-8">
                     <div className="">
                         <div className="grid grid-cols-5">

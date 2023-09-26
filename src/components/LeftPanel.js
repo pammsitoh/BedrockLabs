@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TreeView from './LeftPanel/TreeView';
 import ProjectSettings from './LeftPanel/ProjectSettings';
 
-const LeftPanel = ({ isOpen }) => {
+const LeftPanel = ({ isOpen, viewport }) => {
 
     const [ cTab, setCTab ] = useState(0);
 
@@ -38,7 +38,7 @@ const LeftPanel = ({ isOpen }) => {
             </div>
             {
                 cTab == 0 ?
-                <TreeView />
+                <TreeView viewport={viewport}/>
                 :
                 <ProjectSettings />
             }

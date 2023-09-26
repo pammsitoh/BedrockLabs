@@ -6,11 +6,6 @@ export const UContext= ({ children }) => {
   const [globalState, setGlobalState] = useState({
     currentTab: 0,
     sceneObjects: [
-      {
-        name: "Example",
-        type: "block",
-        object: null
-      }
     ],
     wantExport: false
   });
