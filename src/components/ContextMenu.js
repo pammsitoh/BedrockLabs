@@ -6,13 +6,11 @@ import React from 'react';
 const ContextMenu = ({viewport}) => {
     const { globalState, setGlobalState } = useGlobalState();
     const ClickedOption = () => {
-
         let ctx = document.querySelector("#contextMenu");
         ctx.classList.add("hidden");
         ctx.classList.remove("block");
         viewport.addCube();
-        const updatedSceneObjects = globalState.sceneObjects;
-        setGlobalState({ ...globalState, sceneObjects: updatedSceneObjects });
+        setGlobalState({ ...globalState, sceneObjects: globalState.sceneObjects });
     }
 
     return (

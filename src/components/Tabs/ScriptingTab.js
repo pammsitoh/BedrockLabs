@@ -1,5 +1,4 @@
 import { Editor } from "@monaco-editor/react";
-import React from "react";
 
 const code = `{
     "format_version": "1.20.30",
